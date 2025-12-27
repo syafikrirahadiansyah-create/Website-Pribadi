@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Musik</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Selamat Datang di Website Saya</h1>
+        <p>Halaman Utama Website Sederhana</p>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="karya.html">Karya & Project</a></li>
+            <li><a href="media.html" class="active">Media</a></li> <li><a href="informasi.html">Informasi</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 class="content-title">Playlist Musik Saya</h2>
+        <p style="text-align:center; margin-bottom: 20px;">
+            Kumpulan lagu favorit, poster album, dan video musik pilihan.
+        </p>
+
+        <div class="sub-nav">
+            <button class="tab-btn active-tab" onclick="openTab('lagu')"><i class="fas fa-music"></i> Lagu</button>
+            <button class="tab-btn" onclick="openTab('poster')"><i class="fas fa-image"></i> Poster</button>
+            <button class="tab-btn" onclick="openTab('video')"><i class="fas fa-video"></i> Video Musik</button>
+        </div>
+
+        <div id="lagu" class="media-content show">
+            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Daftar Lagu Favorit</h3>
+            <br>
+
+            <div class="audio-card">
+                <div style="background:#6c5ce7; width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div style="flex:1;">
+                    <h4 style="margin-bottom: 5px;">Cruel Summer</h4>
+                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Taylor Swift</p>
+                    
+                    <audio controls style="width: 100%; height: 35px;">
+                        <source src="CruelSummer.mp3" type="audio/mpeg">
+                        Browser tidak support audio.
+                    </audio>
+                </div>
+            </div>
+
+            <div class="audio-card">
+                <div style="background:#0984e3; width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div style="flex:1;">
+                    <h4 style="margin-bottom: 5px;">Fearless</h4>
+                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Taylor Swift</p>
+                    
+                    <audio controls style="width: 100%; height: 35px;">
+                        <source src="Fearless.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+        <div id="poster" class="media-content">
+            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Galeri Poster & Album Art</h3>
+            
+            <div class="grid-gallery">
+                <div class="card">
+                    <img src="PosterTaylor.jpeg" alt="Poster Lagu 1">
+                    <div style="padding: 10px; text-align: center;">
+                        <h3>Album Hits 2025</h3>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Live.jpeg" alt="Poster Lagu 2">
+                    <div style="padding: 10px; text-align: center;">
+                        <h3>Konser Live</h3>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="FanArt.jpeg" alt="Poster Lagu 3">
+                    <div style="padding: 10px; text-align: center;">
+                        <h3>Poster Fan Art</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="video" class="media-content">
+            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">Video Musik</h3>
+            
+            <div class="grid-gallery">
+                <div class="card">
+                    <img src="LongTaylor.jpeg" alt="Thumbnail Video">
+                    <div class="card-body">
+                        <h3>Video Klip Utama</h3>
+                        <p>Official Music Video</p>
+                        <a href="TaylorMV.mp4" target="_blank" style="color:#6c5ce7; font-weight:bold;">Tonton Video &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Website Pribadi Saya.</p>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("media-content");
+            var tabs = document.getElementsByClassName("tab-btn");
+
+            // 1. Sembunyikan semua konten
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+                x[i].classList.remove("show");
+            }
+
+            // 2. Matikan warna aktif tombol
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active-tab", "");
+            }
+
+            // 3. Tampilkan konten yang dipilih
+            document.getElementById(tabName).style.display = "block";  
+            setTimeout(function() {
+                document.getElementById(tabName).classList.add("show");
+            }, 10);
+            
+            // 4. Nyalakan warna tombol
+            event.currentTarget.className += " active-tab";
+        }
+    </script>
+
+</body>
+</html>
